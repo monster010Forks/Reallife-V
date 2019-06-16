@@ -7,7 +7,7 @@ Dieses Script besitzt weder ein Copyright noch sonst irgendetwas weswegen es jed
 Dieses Script ist KOSTENLOS und wird nie für Geld verkauft werden!
 
 <h2>Wie erstelle ich eine Datenbank?!</h2>
-Eine Datenbank wird automatisch nachdem sich der erste Spieler registriert hat im Ordner wo sich die "Server.exe" befindet erstellt und trägt den Namen "Datenbank.db"
+Eine Datenbank wird automatisch nachdem sich der erste Spieler registriert hat im Ordner wo sich die "Server.exe" befindet erstellt und trägt den Namen "Database.db"
 
 <h2>Wie öffne ich die Datenbank?!</h2>
 Die Datenbank kannst du mithilfe der im Ordner enthaltene "LiteDB.exe" öffnen.
