@@ -1,0 +1,282 @@
+@charset "UTF-8";
+@import url("font-awesome.min.css");
+html {}
+body {
+    display: block;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    /*width: 1200px;*/
+}
+.button {
+  background-color: #212121;
+  color: white;
+  font-weight: bold;
+  border: 2px solid #009dff; /* Green */
+}
+.bar {
+    background-color: #009dff;
+    background-image: linear-gradient(#079aef, #079aef);
+    box-shadow: 0 -1px 0 #079aef inset, 0 0 5px 0 rgba(0, 0, 0, 0.5);
+    font-size: 15px;
+    color: #FFF;
+    line-height: 35px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.bar>.close {
+    float: right;
+    padding-right: 5px;
+    cursor: pointer;
+    font-weight: 600;
+}
+.bar>img {
+    width: 25px;
+    height: 25px;
+    margin-right: 15px;
+}
+.content {
+    position: relative;
+    display: block;
+    background-color: #212121;
+    font-size: 15px;
+    color: #FFF;
+    box-shadow: 0 -1px 0 #212121 inset, 0 0 5px 0 rgba(0, 0, 0, 0.5);
+    float: left;
+    margin: auto;
+    width: 100%;
+    width: 410px;
+    left: calc(50% - 200px);
+    position: absolute;
+    top: calc(50% - 348.5px);
+}
+.content>.middle>.listings {
+    display: block;
+    height: 500px;
+    overflow: auto;
+    margin-bottom: 30px;
+}
+.content>.middle>.listings>.listing {
+    position: relative;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: block;
+    height: 30px;
+    border-radius: 2px;
+    background-color: #353535;
+    width: 100%;
+}
+.content>.middle>.listings>.listing:nth-child(even) {
+    background-color: transparent;
+}
+.content>.middle>.listings>.listing>.name {
+    display: inline-block;
+    float: left;
+    line-height: 30px;
+    padding-left: 35px;
+}
+.content>.middle>.listings>.listing>.auslagern {
+
+    width: 100px;
+    display: inline-block;
+    margin-left: 45px;
+    line-height: 29px;
+    float: right;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    padding-top: 2px;
+    padding-bottom: 1px;
+    display: inline-block;
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    background: #3d8a3d;
+    margin-right: 50px;
+    box-shadow: 0 -1px 0 #212121 inset, 0 0 5px 0 rgba(0, 0, 0, 0.5);
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.content>.middle>.listings.prev {
+    margin-top: 20px;
+    display: block;
+    height: 30px;
+    margin-bottom: 5px;
+    width: 100%;
+}
+.content>.middle>.listings.prev>.listing>.veh {
+    width: 100px;
+    display: inline-block;
+    text-align: center;
+    float: left;
+}
+.content>.middle>.listings.prev>.listing>.action {
+    width: 150px;
+    display: inline-block;
+    float: center;
+	margin-left: 30px;
+    text-align: center;
+}
+.content>.middle>.listings.prev>.listing {
+    position: relative;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    display: block;
+    height: 30px;
+    background-color: transparent !important;
+    border: 0 !important;
+}
+.prompt {
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 200px);
+    width: 400px;
+    height: 200px;
+    background-color: #2f2f2f;
+    font-size: 15px;
+    color: #FFF;
+    box-shadow: 0 -1px 0 #212121 inset, 0 0 5px 0 rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 9999;
+    transition: all .2s linear;
+}
+.prompt.takeout {
+    height: 200px;
+    width: 400px;
+    top: calc(50% - 100px);
+}
+.prompt.show {
+    display: block;
+
+    transition: all .2s linear;
+}
+.prompt>.confirm {
+    width: 100px;
+    display: inline-block;
+    margin-left: 45px;
+    margin-top: 15px;
+    line-height: 29px;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    padding-top: 2px;
+    padding-bottom: 1px;
+    display: inline-block;
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    background: #3d8a3d;
+    margin-right: 50px;
+    box-shadow: 0 -1px 0 #212121 inset, 0 0 5px 0 rgba(0, 0, 0, 0.5);
+}
+.prompt.buy>.confirm {
+    margin-top: 65px;
+}
+.prompt>.abort {
+    width: 100px;
+    display: inline-block;
+    margin-left: 60px;
+    margin-right: 45px;
+    line-height: 29px;
+    margin-top: 15px;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    padding-top: 2px;
+    padding-bottom: 1px;
+    display: inline-block;
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    background: #963636;
+    box-shadow: 0 -1px 0 #212121 inset, 0 0 5px 0 rgba(0, 0, 0, 0.5);
+}
+.prompt>.calc {
+    width: 400px;
+    height: 80px;
+    display: block;
+    padding-top: 15px;
+}
+.prompt>.calc span {
+    padding-top: 5px;
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+.prompt>.calc input {
+    text-align: center;
+    display: block;
+    margin: auto;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100px;
+    margin-top: 10px;
+    background-color: #353535;
+    border-radius: 1px;
+    border: 1px solid #575757;
+    color: #FFF;
+}
+::-webkit-scrollbar {
+    width: 15px;
+    display: block;
+}
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 2px;
+    margin-right: 5px;
+    border-right: 256px solid transparent;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+    margin-right: 5px;
+    background-color: #b83c35;
+    background-image: linear-gradient(#ca4e47, #b83c35);
+}
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 15px;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    border: 0 !important;
+    background-color: transparent !important;
+}
+.slider:hover {
+    opacity: 1;
+}
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 30px;
+    background: rgba(58, 164, 58, 0.8);
+    cursor: pointer;
+    border-radius: 1px;
+    border: 0;
+    transition: all .2s;
+    margin-top: -8px;
+    border: 1px solid solid rgba(0, 0, 0, 1);
+}
+.slider::-webkit-slider-thumb:hover {
+    background: #3aa43a;
+    transition: all .2s;
+}
+.slider::-webkit-slider-runnable-track {
+    position: relative;
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+}

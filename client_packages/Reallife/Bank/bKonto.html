@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+
+<html lang="de">
+<head>
+    
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="css/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+	
+	    
+
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bKonto.css" />
+
+    <meta charset="utf-8" />
+</head>
+<body>
+   <div class="container">
+        <div class="card" id="mainContainer">
+			<h2 style="text-align:center;color:black;margin-top:25px;">Bank of San Andreas</h2>
+			<div id="cBalance" class="row" style="margin-top: 0px;margin-bottom:5px;">
+
+			<div class="card-body">
+			<hr style="margin-top: -5px;margin-bottom:0px;">
+				<h3 style="color:black;text-align:center;">Bankkonto Formular</h3>
+				<h4 style="text-align:center; color:black;">Bitte wähle deinen 4 stelligen Pin!</h4>
+				<hr />
+				<div class="tab-content">
+					<div id="loginTab" class="tab-pane active">
+						<form>
+							<div class="test">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+								<input id="BankPin" maxlength="4" minlength="4" type="password" class="form-control" placeholder="4 Stelligen Pin">
+							</div>
+							<p>
+							<div class="input-group">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+								<input id="BinPinRe" maxlength="4" minlength="4" type="password" class="form-control" placeholder="4 Stelligen Pin wiederholen!">
+							</div>
+							</div>
+							<hr />
+							<div class="test2">
+							<button id="ErstellungButton" type="button" class="btn btn-primary btn-block">Weiter</button>
+							<button id="ClosePinAuswahlButton" type="button" class="btn btn-danger btn-block">Abbruch</button>
+							</div>
+						</form>
+					</div>
+				</div>
+             </div>
+        </div>
+    </div>
+    <!--Scripts-->
+    <script src="js/bKonto.js"</script>
+	       <script type="text/javascript">
+            $('.alert-danger').hide();
+        </script>
+</body>
+</html>

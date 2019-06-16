@@ -1,0 +1,4 @@
+﻿<meta>
+  <info name="reallife" author="Nick" type="script" />
+  <script src="bin/Debug/netcoreapp2.1/reallife.dll"/>
+</meta>

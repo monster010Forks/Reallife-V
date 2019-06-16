@@ -1,0 +1,32 @@
+﻿/* Copyright © 2019 by CommanderDonkey */
+/* Read README.md for using */
+
+body {
+    display: none;
+}
+.fas {
+    font-size: 1vw;
+    margin-left: 0.25vw;
+}
+
+.bar2 {
+    background: #2c2c2c;
+    position: absolute;
+    padding: 0.25vw;
+    color: #fff;
+    width: 8vw;
+    height: 1vw;
+    border-radius: 0.1vw;
+    bottom: 1.4vw;
+    right: 1.4vw;
+}
+
+.kmh {
+    position: absolute;
+    right: 1.25vw;
+    font-family: 'Open Sans';
+    font-size: 0.75vw;
+    top: 0.2vw;
+    font-weight: 600;
+    letter-spacing: -0.01vw;
+}

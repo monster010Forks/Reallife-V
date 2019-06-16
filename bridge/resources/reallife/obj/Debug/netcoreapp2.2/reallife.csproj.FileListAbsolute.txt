@@ -1,0 +1,132 @@
+C:\Users\Nick\Desktop\RageMP\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\reallife.deps.json
+C:\Users\Nick\Desktop\RageMP\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\reallife.dll
+C:\Users\Nick\Desktop\RageMP\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\reallife.pdb
+C:\Users\Nick\Desktop\RageMP\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\Bootstrapper.dll
+C:\Users\Nick\Desktop\RageMP\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\Colorful.Console.dll
+C:\Users\Nick\Desktop\RageMP\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\Ben.Demystifier.dll
+C:\Users\Nick\Desktop\RageMP\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\NeoSmart.Hashing.dll
+C:\Users\Nick\Desktop\RageMP\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\xxHash.dll
+C:\Users\Nick\Desktop\RageMP\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.csproj.CoreCompileInputs.cache
+C:\Users\Nick\Desktop\RageMP\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.AssemblyInfoInputs.cache
+C:\Users\Nick\Desktop\RageMP\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.AssemblyInfo.cs
+C:\Users\Nick\Desktop\RageMP\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.csproj.CopyComplete
+C:\Users\Nick\Desktop\RageMP\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.dll
+C:\Users\Nick\Desktop\RageMP\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.pdb
+C:\Users\Nick\Desktop\RageMP\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\BCrypt-Core.dll
+C:\Users\Nick\Desktop\RageMP\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\LiteDB.dll
+C:\Users\Nick\Desktop\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\reallife.deps.json
+C:\Users\Nick\Desktop\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\reallife.dll
+C:\Users\Nick\Desktop\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\reallife.pdb
+C:\Users\Nick\Desktop\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\BCrypt-Core.dll
+C:\Users\Nick\Desktop\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\Bootstrapper.dll
+C:\Users\Nick\Desktop\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\LiteDB.dll
+C:\Users\Nick\Desktop\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\Colorful.Console.dll
+C:\Users\Nick\Desktop\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\Ben.Demystifier.dll
+C:\Users\Nick\Desktop\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\NeoSmart.Hashing.dll
+C:\Users\Nick\Desktop\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\xxHash.dll
+C:\Users\Nick\Desktop\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.csproj.CoreCompileInputs.cache
+C:\Users\Nick\Desktop\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.AssemblyInfoInputs.cache
+C:\Users\Nick\Desktop\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.AssemblyInfo.cs
+C:\Users\Nick\Desktop\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.csproj.CopyComplete
+C:\Users\Nick\Desktop\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.dll
+C:\Users\Nick\Desktop\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.pdb
+C:\Users\Administrator\Desktop\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.AssemblyInfoInputs.cache
+C:\Users\Administrator\Desktop\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.AssemblyInfo.cs
+C:\Users\Administrator\Desktop\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.dll
+C:\Users\Administrator\Desktop\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.pdb
+C:\Users\Administrator\Desktop\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\reallife.deps.json
+C:\Users\Administrator\Desktop\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\reallife.dll
+C:\Users\Administrator\Desktop\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\reallife.pdb
+C:\Users\Administrator\Desktop\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\BCrypt-Core.dll
+C:\Users\Administrator\Desktop\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\Bootstrapper.dll
+C:\Users\Administrator\Desktop\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\LiteDB.dll
+C:\Users\Administrator\Desktop\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\Colorful.Console.dll
+C:\Users\Administrator\Desktop\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\Ben.Demystifier.dll
+C:\Users\Administrator\Desktop\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\NeoSmart.Hashing.dll
+C:\Users\Administrator\Desktop\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\xxHash.dll
+C:\Users\Administrator\Desktop\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.csproj.CopyComplete
+C:\Users\Nick\Desktop\Neuer Ordner\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\reallife.deps.json
+C:\Users\Nick\Desktop\Neuer Ordner\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\reallife.dll
+C:\Users\Nick\Desktop\Neuer Ordner\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\reallife.pdb
+C:\Users\Nick\Desktop\Neuer Ordner\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\BCrypt-Core.dll
+C:\Users\Nick\Desktop\Neuer Ordner\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\Bootstrapper.dll
+C:\Users\Nick\Desktop\Neuer Ordner\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\LiteDB.dll
+C:\Users\Nick\Desktop\Neuer Ordner\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\Colorful.Console.dll
+C:\Users\Nick\Desktop\Neuer Ordner\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\Ben.Demystifier.dll
+C:\Users\Nick\Desktop\Neuer Ordner\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\NeoSmart.Hashing.dll
+C:\Users\Nick\Desktop\Neuer Ordner\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\xxHash.dll
+C:\Users\Nick\Desktop\Neuer Ordner\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.csproj.CoreCompileInputs.cache
+C:\Users\Nick\Desktop\Neuer Ordner\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.AssemblyInfoInputs.cache
+C:\Users\Nick\Desktop\Neuer Ordner\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.AssemblyInfo.cs
+C:\Users\Nick\Desktop\Neuer Ordner\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.csproj.CopyComplete
+C:\Users\Nick\Desktop\Neuer Ordner\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.dll
+C:\Users\Nick\Desktop\Neuer Ordner\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.pdb
+C:\Users\Administrator\Desktop\Neuer Ordner\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\reallife.deps.json
+C:\Users\Administrator\Desktop\Neuer Ordner\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\reallife.dll
+C:\Users\Administrator\Desktop\Neuer Ordner\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\reallife.pdb
+C:\Users\Administrator\Desktop\Neuer Ordner\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\BCrypt-Core.dll
+C:\Users\Administrator\Desktop\Neuer Ordner\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\Bootstrapper.dll
+C:\Users\Administrator\Desktop\Neuer Ordner\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\LiteDB.dll
+C:\Users\Administrator\Desktop\Neuer Ordner\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\Colorful.Console.dll
+C:\Users\Administrator\Desktop\Neuer Ordner\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\Ben.Demystifier.dll
+C:\Users\Administrator\Desktop\Neuer Ordner\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\NeoSmart.Hashing.dll
+C:\Users\Administrator\Desktop\Neuer Ordner\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\xxHash.dll
+C:\Users\Administrator\Desktop\Neuer Ordner\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\Neuer Ordner\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.AssemblyInfoInputs.cache
+C:\Users\Administrator\Desktop\Neuer Ordner\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.AssemblyInfo.cs
+C:\Users\Administrator\Desktop\Neuer Ordner\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.csproj.CopyComplete
+C:\Users\Administrator\Desktop\Neuer Ordner\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.dll
+C:\Users\Administrator\Desktop\Neuer Ordner\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.pdb
+C:\Users\Administrator\Desktop\Neuer Ordner\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.csprojAssemblyReference.cache
+C:\Users\Nick\Desktop\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.csprojAssemblyReference.cache
+C:\Users\Kevin\Desktop\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\reallife.deps.json
+C:\Users\Kevin\Desktop\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\reallife.dll
+C:\Users\Kevin\Desktop\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\reallife.pdb
+C:\Users\Kevin\Desktop\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\BCrypt-Core.dll
+C:\Users\Kevin\Desktop\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\Bootstrapper.dll
+C:\Users\Kevin\Desktop\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\LiteDB.dll
+C:\Users\Kevin\Desktop\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\Colorful.Console.dll
+C:\Users\Kevin\Desktop\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\Ben.Demystifier.dll
+C:\Users\Kevin\Desktop\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\NeoSmart.Hashing.dll
+C:\Users\Kevin\Desktop\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\xxHash.dll
+C:\Users\Kevin\Desktop\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.csproj.CoreCompileInputs.cache
+C:\Users\Kevin\Desktop\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.AssemblyInfoInputs.cache
+C:\Users\Kevin\Desktop\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.AssemblyInfo.cs
+C:\Users\Kevin\Desktop\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.csproj.CopyComplete
+C:\Users\Kevin\Desktop\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.dll
+C:\Users\Kevin\Desktop\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.pdb
+C:\Users\Niick\Desktop\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\reallife.deps.json
+C:\Users\Niick\Desktop\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\reallife.dll
+C:\Users\Niick\Desktop\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\reallife.pdb
+C:\Users\Niick\Desktop\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\BCrypt-Core.dll
+C:\Users\Niick\Desktop\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\Bootstrapper.dll
+C:\Users\Niick\Desktop\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\LiteDB.dll
+C:\Users\Niick\Desktop\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\Colorful.Console.dll
+C:\Users\Niick\Desktop\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\Ben.Demystifier.dll
+C:\Users\Niick\Desktop\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\NeoSmart.Hashing.dll
+C:\Users\Niick\Desktop\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\xxHash.dll
+C:\Users\Niick\Desktop\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.csproj.CoreCompileInputs.cache
+C:\Users\Niick\Desktop\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.AssemblyInfoInputs.cache
+C:\Users\Niick\Desktop\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.AssemblyInfo.cs
+C:\Users\Niick\Desktop\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.csproj.CopyComplete
+C:\Users\Niick\Desktop\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.dll
+C:\Users\Niick\Desktop\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.pdb
+D:\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\reallife.deps.json
+D:\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\reallife.dll
+D:\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\reallife.pdb
+D:\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\BCrypt-Core.dll
+D:\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\Bootstrapper.dll
+D:\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\LiteDB.dll
+D:\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\Colorful.Console.dll
+D:\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\Ben.Demystifier.dll
+D:\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\NeoSmart.Hashing.dll
+D:\server-files\bridge\resources\reallife\bin\Debug\netcoreapp2.2\xxHash.dll
+D:\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.csproj.CoreCompileInputs.cache
+D:\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.AssemblyInfoInputs.cache
+D:\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.AssemblyInfo.cs
+D:\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.csproj.CopyComplete
+D:\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.dll
+D:\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.pdb
+C:\Users\Kevin\Desktop\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.2\reallife.csprojAssemblyReference.cache

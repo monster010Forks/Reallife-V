@@ -1,0 +1,9 @@
+{
+	"maxplayers" : 1,
+	"name" : "Reallife-V | Deutscher Reallife Server [0.4.1]", 
+	"gamemode" : "reallife", 
+	"stream-distance" : 500.0,
+	"announce" : false,
+	"csharp" : "true",
+	"port": 22005
+}

@@ -1,0 +1,15 @@
+|| 16.06.2019 ||
+----------------
+- /akte (Spieler) - hinzugefügt
+- /einsperren (Spieler) - hinzugefügt
+- /entlassen (spieler) - hinzugefügt
+- /cuff (Spieler) - hinzugefügt
+- /uncuff (Spieler) - hinzugefügt
+- /removewanted (Spieler) (Wanteds) - hinzugefügt
+
+Neue Textelemente im LSPD.
+Neue Tabellen in PlayerInfo.
+
+- Gefägnis (Unfertig).
+
+- /mp (Nachricht) - Überarbeitet
