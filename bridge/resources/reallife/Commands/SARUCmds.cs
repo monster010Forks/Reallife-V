@@ -78,7 +78,7 @@ namespace reallife.Commands
             }
         }
 
-        [Command("sarucar")]
+        /*[Command("sarucar")]
         public void CMD_saruCar(Client client)
         {
 
@@ -142,6 +142,6 @@ namespace reallife.Commands
             {
                 client.SendNotification("Du bist nicht in Reichweite!");
             }
-        }
+        }*/
     }
 }

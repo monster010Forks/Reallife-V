@@ -22,12 +22,14 @@ namespace reallife.Player
         public int bkontopin { get; set; } = 0;
         public int adminrank { get; set; } = 0;
         public int fraktion { get; set; } = 0;
+        public int fwarn { get; set; }
         public int fleader { get; set; }
         public int wantedlevel { get; set; }
         public int cuff { get; set; }
         public int jail { get; set; }
         public int jailtime { get; set; }
         public int ban { get; set; } = 0;
+        public int warn { get; set; }
         public double[] last_location { get; set; } = new double[] { -1167.994, -700.4285, 21.89281 };
         public double[] temp_location { get; set; } = null;
         public int clothes_1 { get; set; } = 0;
@@ -134,6 +136,11 @@ namespace reallife.Player
                 zahl = 2;
             }
 
+            if (playerInfo.fraktion == 3)
+            {
+                zahl = 3;
+            }
+
             switch (zahl)
             {
                 case 1:
@@ -142,6 +149,10 @@ namespace reallife.Player
 
                 case 2:
                     frak = "SARU";
+                    break;
+
+                case 3:
+                    frak = "Grove Street";
                     break;
 
                 default:

@@ -10,6 +10,21 @@
 Neue Textelemente im LSPD.
 Neue Tabellen in PlayerInfo.
 
-- Gefägnis (Unfertig).
+- Gefängnis (Unfertig).
 
 - /mp (Nachricht) - Überarbeitet
+
+|| 17.06.2019 ||
+----------------
+- /fwarn (Spieler)
+- /delfwarn (Spieler)
+- /fcar
+- /warn (Spieler)
+- /delwarn (Spieler)
+
+- /uninvite (Spieler) - Überarbeitet
+
+- /sarucar - Entfernt (durch /fcar ersetzt)
+- /lspdcar - Entfernt (durch /fcar ersetzt)
+
+GroveStreet (Unfertig) - Hinzugefügt

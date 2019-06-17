@@ -379,7 +379,7 @@ namespace reallife.Commands
             EventTriggers.Update_Wanteds(player);
         }
 
-        [Command("lspdcar")]
+        /*[Command("lspdcar")]
         public void CMD_LSPDCar(Client client)
         {
 
@@ -419,6 +419,6 @@ namespace reallife.Commands
             {
                 client.SendNotification("Du bist nicht in Reichweite!");
             }
-        }
+        }*/
     }
 }

@@ -9,6 +9,74 @@ namespace reallife.Commands
 {
     class AdminCmds : Script
     {
+        [Command("delwarn")]
+        public void CMD_DelWarn(Client client, Client player)
+        {
+            //Spieler Statistiken
+            PlayerInfo leaderInfo = PlayerHelper.GetPlayerStats(client);
+            PlayerInfo playerInfo = PlayerHelper.GetPlayerStats(player);
+
+            //Abfrage ob man ein Leader ist
+            if (!AdminSystem.HasRank(client, 1))
+            {
+                client.SendNotification("~r~Du bist kein Admin!");
+                return;
+            }
+
+            if (client.Name == player.Name)
+            {
+                client.SendNotification("~r~Du kannst dich nicht selber angeben!");
+                return;
+            }
+
+            if (playerInfo.warn == 0)
+            {
+                player.SendNotification("Spieler besitzt keine Warn's!");
+                return;
+            }
+
+            playerInfo.warn -= 1;
+            playerInfo.Update();
+
+            player.SendChatMessage($"[~r~Server~w~]: Eine Verwarnung wurde entfernt! du besitzt nun {playerInfo.warn} Verwarnungen.");
+        }
+
+        [Command("warn")]
+        public void CMD_Warn(Client client, Client player)
+        {
+            //Spieler Statistiken
+            PlayerInfo leaderInfo = PlayerHelper.GetPlayerStats(client);
+            PlayerInfo playerInfo = PlayerHelper.GetPlayerStats(player);
+
+            //Abfrage ob man ein Leader ist
+            if (!AdminSystem.HasRank(client, 1))
+            {
+                client.SendNotification("~r~Du bist kein Admin!");
+                return;
+            }
+
+            if (client.Name == player.Name)
+            {
+                client.SendNotification("~r~Du kannst dich nicht selber angeben!");
+                return;
+            }
+
+            playerInfo.warn += 1;
+            playerInfo.Update();
+
+            player.SendChatMessage($"[~r~Server~w~]: Du bekamst eine Verwarnung und besitzt nun ~r~{playerInfo.warn}~w~ Verwarnungen.");
+
+            if (playerInfo.warn == 3)
+            {
+                player.SendChatMessage("[~r~Server~w~]: Du besitzt zu viele Verwarnungen weswegen du auf diesem Server gesperrt wurdest!");
+
+                playerInfo.ban = 1;
+                playerInfo.Update();
+
+                player.Kick();
+            }
+        }
+
         [Command("respawn")]
         public void CMD_Respawn(Client client, string target)
         {
@@ -163,6 +231,15 @@ namespace reallife.Commands
                     PlayerData.Respawn(client);
                     player.SendChatMessage("Du wurdest zum ~y~Leader~w~ der ~b~SARU~w~ ernannt!");
                 }
+                else if (rank == 3) {
+                tarInfo.fraktion = rank;
+                tarInfo.fleader = rank;
+                tarInfo.last_location = new double[] { 85.90534, -1956.926, 20.74745 };
+                //Rotation: 325.3967
+                tarInfo.Update();
+                PlayerData.Respawn(client);
+                player.SendChatMessage("Du wurdest zum ~y~Leader~w~ der ~g~Grove Street~w~ ernannt!");
+            }
                 else if (rank == 0)
                 {
                     tarInfo.fraktion = rank;
