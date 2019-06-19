@@ -65,21 +65,11 @@ namespace reallife.Fahrzeughändler
                 pVeh.carmodel = "rhapsody";
                 pVeh.last_location = new double[] { veh.Position.X, veh.Position.Y, veh.Position.Z };
                 pVeh.last_rotation = veh.Rotation.Z;
-               
 
-                //TUNES
-                pVeh.Color1 = 0; pVeh.Color2 = 0; pVeh.spoilers = -1; pVeh.fbumber = -1; pVeh.rbumber = -1; pVeh.sskirt = -1; pVeh.exhaust = -1; pVeh.frame = -1;
-                pVeh.grill = -1; pVeh.roof = -1; pVeh.motortuning = -1; pVeh.brakes = -1; pVeh.transmission = -1; pVeh.turbo = -1; pVeh.fwheels = -1; pVeh.bwheels = -1;
-                pVeh.window = -1; pVeh.suspension = -1;
-
-                NAPI.Vehicle.SetVehiclePrimaryColor(veh, pVeh.Color1); NAPI.Vehicle.SetVehicleSecondaryColor(veh, pVeh.Color2); NAPI.Vehicle.SetVehicleMod(veh, 0, pVeh.spoilers);
-                NAPI.Vehicle.SetVehicleMod(veh, 1, pVeh.fbumber); NAPI.Vehicle.SetVehicleMod(veh, 2, pVeh.rbumber); NAPI.Vehicle.SetVehicleMod(veh, 3, pVeh.sskirt);
-                NAPI.Vehicle.SetVehicleMod(veh, 4, pVeh.exhaust); NAPI.Vehicle.SetVehicleMod(veh, 5, pVeh.frame); NAPI.Vehicle.SetVehicleMod(veh, 6, pVeh.grill); NAPI.Vehicle.SetVehicleMod(veh, 10, pVeh.roof);
-                NAPI.Vehicle.SetVehicleMod(veh, 11, pVeh.motortuning); NAPI.Vehicle.SetVehicleMod(veh, 12, pVeh.brakes); NAPI.Vehicle.SetVehicleMod(veh, 13, pVeh.transmission);
-                NAPI.Vehicle.SetVehicleMod(veh, 18, pVeh.turbo); NAPI.Vehicle.SetVehicleMod(veh, 23, pVeh.fwheels); NAPI.Vehicle.SetVehicleMod(veh, 24, pVeh.bwheels); //MOTORAD
-                NAPI.Vehicle.SetVehicleWindowTint(veh, pVeh.window); NAPI.Vehicle.SetVehicleMod(veh, 15, pVeh.suspension);
+                LoadTunes(client, veh, pVeh);
 
                 client.SetData("PersonalVehicle", veh);
+                veh.SetData("ID", client_id);
 
                 pInfo.SubMoney(10250);
                 Database.Update(pInfo);
@@ -121,21 +111,11 @@ namespace reallife.Fahrzeughändler
                 pVeh.carmodel = "issi2";
                 pVeh.last_location = new double[] { veh.Position.X, veh.Position.Y, veh.Position.Z };
                 pVeh.last_rotation = veh.Rotation.Z;
-                
 
-                //TUNES
-                pVeh.Color1 = 0; pVeh.Color2 = 0; pVeh.spoilers = -1; pVeh.fbumber = -1; pVeh.rbumber = -1; pVeh.sskirt = -1; pVeh.exhaust = -1; pVeh.frame = -1;
-                pVeh.grill = -1; pVeh.roof = -1; pVeh.motortuning = -1; pVeh.brakes = -1; pVeh.transmission = -1; pVeh.turbo = -1; pVeh.fwheels = -1; pVeh.bwheels = -1;
-                pVeh.window = -1; pVeh.suspension = -1;
-
-                NAPI.Vehicle.SetVehiclePrimaryColor(veh, pVeh.Color1); NAPI.Vehicle.SetVehicleSecondaryColor(veh, pVeh.Color2); NAPI.Vehicle.SetVehicleMod(veh, 0, pVeh.spoilers);
-                NAPI.Vehicle.SetVehicleMod(veh, 1, pVeh.fbumber); NAPI.Vehicle.SetVehicleMod(veh, 2, pVeh.rbumber); NAPI.Vehicle.SetVehicleMod(veh, 3, pVeh.sskirt);
-                NAPI.Vehicle.SetVehicleMod(veh, 4, pVeh.exhaust); NAPI.Vehicle.SetVehicleMod(veh, 5, pVeh.frame); NAPI.Vehicle.SetVehicleMod(veh, 6, pVeh.grill); NAPI.Vehicle.SetVehicleMod(veh, 10, pVeh.roof);
-                NAPI.Vehicle.SetVehicleMod(veh, 11, pVeh.motortuning); NAPI.Vehicle.SetVehicleMod(veh, 12, pVeh.brakes); NAPI.Vehicle.SetVehicleMod(veh, 13, pVeh.transmission);
-                NAPI.Vehicle.SetVehicleMod(veh, 18, pVeh.turbo); NAPI.Vehicle.SetVehicleMod(veh, 23, pVeh.fwheels); NAPI.Vehicle.SetVehicleMod(veh, 24, pVeh.bwheels); //MOTORAD
-                NAPI.Vehicle.SetVehicleWindowTint(veh, pVeh.window); NAPI.Vehicle.SetVehicleMod(veh, 15, pVeh.suspension);
+                LoadTunes(client, veh, pVeh);
 
                 client.SetData("PersonalVehicle", veh);
+                veh.SetData("ID", client_id);
 
                 pInfo.SubMoney(12500);
                 Database.Update(pInfo);
@@ -148,10 +128,19 @@ namespace reallife.Fahrzeughändler
             }
         }
 
-        [ServerEvent(Event.PlayerEnterVehicle)]
-        public void OnPlayerEnterVehicle(Client player, Vehicle vehicle, sbyte seatID)
+        public void LoadTunes(Client client, Vehicle veh, PlayerVehicles pVeh)
         {
-        }
+            //TUNES
+            pVeh.Color1 = 0; pVeh.Color2 = 0; pVeh.spoilers = -1; pVeh.fbumber = -1; pVeh.rbumber = -1; pVeh.sskirt = -1; pVeh.exhaust = -1; pVeh.frame = -1;
+            pVeh.grill = -1; pVeh.roof = -1; pVeh.motortuning = -1; pVeh.brakes = -1; pVeh.transmission = -1; pVeh.turbo = -1; pVeh.fwheels = -1; pVeh.bwheels = -1;
+            pVeh.window = -1; pVeh.suspension = -1;
 
+            NAPI.Vehicle.SetVehiclePrimaryColor(veh, pVeh.Color1); NAPI.Vehicle.SetVehicleSecondaryColor(veh, pVeh.Color2); NAPI.Vehicle.SetVehicleMod(veh, 0, pVeh.spoilers);
+            NAPI.Vehicle.SetVehicleMod(veh, 1, pVeh.fbumber); NAPI.Vehicle.SetVehicleMod(veh, 2, pVeh.rbumber); NAPI.Vehicle.SetVehicleMod(veh, 3, pVeh.sskirt);
+            NAPI.Vehicle.SetVehicleMod(veh, 4, pVeh.exhaust); NAPI.Vehicle.SetVehicleMod(veh, 5, pVeh.frame); NAPI.Vehicle.SetVehicleMod(veh, 6, pVeh.grill); NAPI.Vehicle.SetVehicleMod(veh, 10, pVeh.roof);
+            NAPI.Vehicle.SetVehicleMod(veh, 11, pVeh.motortuning); NAPI.Vehicle.SetVehicleMod(veh, 12, pVeh.brakes); NAPI.Vehicle.SetVehicleMod(veh, 13, pVeh.transmission);
+            NAPI.Vehicle.SetVehicleMod(veh, 18, pVeh.turbo); NAPI.Vehicle.SetVehicleMod(veh, 23, pVeh.fwheels); NAPI.Vehicle.SetVehicleMod(veh, 24, pVeh.bwheels); //MOTORAD
+            NAPI.Vehicle.SetVehicleWindowTint(veh, pVeh.window); NAPI.Vehicle.SetVehicleMod(veh, 15, pVeh.suspension);
+        }
     }
 }

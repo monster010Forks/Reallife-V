@@ -73,8 +73,8 @@ namespace reallife.Commands
             if (client.Position.DistanceTo2D(player.Position) < 5)
             {
                 player.RemoveAllWeapons();
-                client.SendNotification($"~g~[POLICE]:~w~ Die Waffen von {player.Name} wurden entfernt!");
-                player.SendNotification($"~g~[POLICE]:~w~ Deine Waffen wurden von {client.Name} entfernt!");
+                client.SendNotification($"[~b~LSPD~w~]: Die Waffen von {player.Name} wurden entfernt!");
+                player.SendNotification($"[~b~LSPD~w~]: Deine Waffen wurden von {client.Name} entfernt!");
             } else
             {
                 client.SendNotification("Spieler ist nicht in Reichweite!");
@@ -99,19 +99,31 @@ namespace reallife.Commands
                 return;
             }
 
+            if (!player.HasData("cuff") == true)
+            {
+                client.SendNotification("Spieler ist nicht in Handschellen!");
+                return;
+            }
+
+            if (playerInfo.wantedlevel == 0)
+            {
+                client.SendNotification("Dieser Spieler wird nicht gesucht!");
+                return;
+            }
+
             if (client.Position.DistanceTo2D(new Vector3(461.9194, -989.1077, 24.91486)) <= 3)
             {
                 if (client.Position.DistanceTo2D(player.Position) <= 5)
                 {
-
                     playerInfo.jail = 1;
                     playerInfo.cuff = 0;
+
                     playerInfo.Update();
 
                     PlayerData.Respawn(player);
 
-                    client.SendNotification($"~g~[POLICE]:~w~ Du hast ~y~{player.Name}~w~ in das Gefägnis gesteckt!");
-                    player.SendNotification($"~g~[POLICE]:~y~ {client.Name}~w~ hat dich in das Gefängnis gesteckt!");
+                    client.SendNotification($"[~b~LSPD~w~]: Du hast ~y~{player.Name}~w~ in das Gefägnis gesteckt!");
+                    player.SendNotification($"[~b~LSPD~w~]: {client.Name}~w~ hat dich in das Gefängnis gesteckt!");
                 } else
                 {
                     client.SendNotification("Dieser Spieler befindet sich nicht in deiner Nähe!");
@@ -150,8 +162,8 @@ namespace reallife.Commands
                     playerInfo.Update();
 
                     PlayerData.Respawn(player);
-                    client.SendNotification($"~g~[POLICE]:~w~ Du hast ~y~{player.Name}~w~ aus dem Gefägnis gelassen!");
-                    player.SendNotification($"~g~[POLICE]:~y~ {client.Name}~w~ hat dich aus dem Gefägnis gelassen!");
+                    client.SendNotification($"[~b~LSPD~w~]: Du hast ~y~{player.Name}~w~ aus dem Gefägnis gelassen!");
+                    player.SendNotification($"[~b~LSPD~w~]: {client.Name}~w~ hat dich aus dem Gefägnis gelassen!");
             }
             else
             {
@@ -177,7 +189,7 @@ namespace reallife.Commands
                 return;
             }
 
-            if (player.HasData("cuff") == true)
+            if (player.HasData("cuff"))
             {
                 client.SendNotification("Dieser Spieler besitzt bereits Handschellen!");
                 return;
@@ -192,7 +204,7 @@ namespace reallife.Commands
             if(player.Position.DistanceTo2D(client.Position) < 5)
             {
                 NAPI.Player.PlayPlayerAnimation(player, (int)(AnimationFlags.Loop | AnimationFlags.OnlyAnimateUpperBody | AnimationFlags.AllowPlayerControl), "mp_arresting", "idle");
-                client.SendNotification("~g~[POLICE]:~w~ Du hast diese Person festgenommen: " + player.Name);
+                client.SendNotification("[~b~LSPD~w~]:~w~ Du hast diese Person festgenommen: " + player.Name);
                 LSPD.cuff(player);
             } else
             {
@@ -218,10 +230,16 @@ namespace reallife.Commands
                 return;
             }
 
+            if (!player.HasData("cuff"))
+            {
+                client.SendNotification("[~b~LSPD~w~]: Dieser Spieler besitzt keine Handschellen!");
+                return;
+            }
+
             if (player.Position.DistanceTo2D(client.Position) < 5)
             {
                 NAPI.Player.StopPlayerAnimation(player);
-                client.SendNotification("~g~[POLICE]:~w~ Du hast diese Person freigelassen: " + player.Name);
+                client.SendNotification("[~b~LSPD~w~]: Du hast diese Person freigelassen: " + player.Name);
                 LSPD.uncuff(player);
             } else
             {
@@ -289,8 +307,8 @@ namespace reallife.Commands
             }
 
             pInfo.wantedlevel -= wanteds;
-            client.SendNotification($"~g~[POLICE]:~w~ Du hast ~r~{player.Name}~w~ erfolgreich ~r~{wanteds} Wanteds~w~ abgezogen!");
-            player.SendChatMessage($"~g~[POLICE]: ~b~{client.Name}~w~ hat dir ~r~{wanteds} Wanteds~w~ abgezogen!");
+            client.SendNotification($"[~b~LSPD~w~]: Du hast ~r~{player.Name}~w~ erfolgreich ~r~{wanteds} Wanteds~w~ abgezogen!");
+            player.SendChatMessage($"[~b~LSPD~w~]: ~b~{client.Name}~w~ hat dir ~r~{wanteds} Wanteds~w~ abgezogen!");
             pInfo.Update();
             EventTriggers.Update_Wanteds(player);
         }
@@ -331,8 +349,8 @@ namespace reallife.Commands
             }
 
             pInfo.wantedlevel = 0;
-            client.SendNotification($"~g~[POLICE]:~w~ Du hast die Akte von {player.Name} ~r~gelöscht~w~!");
-            player.SendChatMessage($"~g~[POLICE]: ~b~{client.Name}~w~ hat deine Akte ~r~gelöscht~w~!");
+            client.SendNotification($"[~b~LSPD~w~]: Du hast die Akte von {player.Name} ~r~gelöscht~w~!");
+            player.SendChatMessage($"[~b~LSPD~w~]: ~b~{client.Name}~w~ hat deine Akte ~r~gelöscht~w~!");
             pInfo.Update();
             EventTriggers.Update_Wanteds(player);
         }
@@ -373,8 +391,8 @@ namespace reallife.Commands
             }
 
             pInfo.wantedlevel += wanteds;
-            client.SendNotification($"~g~[POLICE]:~w~ Du hast ~r~{player.Name}~w~ erfolgreich ~r~{wanteds} Wanteds~w~ gegeben!");
-            player.SendChatMessage($"~g~[POLICE]: ~b~{client.Name}~w~ hat dir ~r~{wanteds} Wanteds~w~ gegeben!");
+            client.SendNotification($"[~b~LSPD~w~]: Du hast ~r~{player.Name}~w~ erfolgreich ~r~{wanteds} Wanteds~w~ gegeben!");
+            player.SendChatMessage($"[~b~LSPD~w~]: ~b~{client.Name}~w~ hat dir ~r~{wanteds} Wanteds~w~ gegeben!");
             pInfo.Update();
             EventTriggers.Update_Wanteds(player);
         }

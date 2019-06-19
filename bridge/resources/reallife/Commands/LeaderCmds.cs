@@ -18,7 +18,7 @@ namespace reallife.Commands
             PlayerInfo playerInfo = PlayerHelper.GetPlayerStats(player);
 
             //Abfrage ob man ein Leader ist
-            if (!LeaderSystem.IsLeader(client, 1))
+            if (!LeaderSystem.IsLeader(client))
             {
                 client.SendNotification("~r~Du bist kein Leader!");
                 return;
@@ -56,7 +56,7 @@ namespace reallife.Commands
             PlayerInfo playerInfo = PlayerHelper.GetPlayerStats(player);
 
             //Abfrage ob man ein Leader ist
-            if (!LeaderSystem.IsLeader(client, 1))
+            if (!LeaderSystem.IsLeader(client))
             {
                 client.SendNotification("~r~Du bist kein Leader!");
                 return;
@@ -93,60 +93,36 @@ namespace reallife.Commands
         }
 
         [Command("invite")]
-        public void CMD_invite(Client client, Client player)
+        public void CMD_invite(Client client, string player)
         {
             //Spieler Statistiken
             PlayerInfo leaderInfo = PlayerHelper.GetPlayerStats(client);
-            PlayerInfo playerInfo = PlayerHelper.GetPlayerStats(player);
 
             //Abfrage ob man ein Leader ist
-            if (!LeaderSystem.IsLeader(client, 1))
+            if (!LeaderSystem.IsLeader(client))
             {
                 client.SendNotification("~r~Du bist kein Leader!");
                 return;
             }
 
-            if (client.Name == player.Name)
+            /*if (client.Name == target.Name)
             {
                 client.SendNotification("~r~Du kannst dich nicht selber einladen!");
                 return;
-            }
+            }*/
 
-            if (LeaderSystem.HasRank(client, 1))
+            if (FraktionSystem.SetRank(player, leaderInfo.fleader))
             {
-                client.SendNotification("Spieler wurde erfolgreich in die Fraktion eingeladen!");
-                player.SendNotification("Du wurdest zur LSPD eingeladen!");
-                playerInfo.last_location = new double[] { 447.9005, -973.0226, 30.68961 };
-                playerInfo.fraktion = 1;
-                playerInfo.Update();
-
-                PlayerData.Respawn(player);
-            }
-            else if (LeaderSystem.HasRank(client, 2))
-            {
-                client.SendNotification("Spieler wurde erfolgreich in die Fraktion eingeladen!");
-                player.SendNotification("Du wurdest zur SARU eingeladen!");
-                playerInfo.last_location = new double[] { 1151.196, -1529.605, 35.36937 };
-                playerInfo.fraktion = 2;
-                playerInfo.Update();
-
-                PlayerData.Respawn(player);
-            }
-            else if (LeaderSystem.HasRank(client, 3))
-            {
-                client.SendNotification("Spieler wurde erfolgreich in die Fraktion eingeladen!");
-                player.SendNotification("Du wurdest zur Grove Street eingeladen!");
-                playerInfo.last_location = new double[] { 85.90534, -1956.926, 20.74745 };
-                playerInfo.fraktion = 3;
-
-                playerInfo.Update();
-
-                PlayerData.Respawn(player);
+                client.SendNotification($"[~r~Server~w~] Spieler {player} wurde in die Fraktion eingeladen.");
+                PlayerData.Respawn(client);
+                return;
             }
             else
             {
-                client.SendNotification("~r~Etwas ist schiefgelaufen!");
+                client.SendNotification($"[~r~Server~w~] Spieler {player} konnte nicht in die Fraktion eingeladen werden!");
+                return;
             }
+
         }
 
         [Command("uninvite")]
@@ -157,7 +133,7 @@ namespace reallife.Commands
             PlayerInfo playerInfo = PlayerHelper.GetPlayerStats(player);
 
             //Abfrage ob man ein Leader ist
-            if (!LeaderSystem.IsLeader(client, 1))
+            if (!LeaderSystem.IsLeader(client))
             {
                 client.SendNotification("~r~Du bist kein Leader!");
                 return;
@@ -170,11 +146,11 @@ namespace reallife.Commands
                 return;
             }
 
-            if (client.Name == player.Name)
+            /*if (client.Name == player.Name)
             {
                 client.SendNotification("~r~Du kannst dich nicht selber entlassen!");
                 return;
-            }
+            }*/
 
             client.SendNotification("Spieler wurde erfolgreich aus der Fraktion rausgeworfen!");
             player.SendNotification("~r~Du wurdest aus der Fraktion entlassen!");

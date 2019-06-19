@@ -14,6 +14,8 @@ namespace reallife.Commands
         [Command("fcar")]
         public void CMD_FraktionsFahrzeug(Client client)
         {
+            int client_id = client.GetData("ID");
+
             if (client.HasData("FrakVehicle"))
             {
                 client.SendNotification("Du besitzt bereits ein Fraktions Fahrzeug!");
@@ -34,6 +36,7 @@ namespace reallife.Commands
                         client.SendChatMessage("Nutze ~b~/lock~w~ zum aufschließen oder abschließen!");
 
                         client.SetData("FrakVehicle", veh);
+                        veh.SetData("ID", client_id);
                     }
                     else
                     {
@@ -58,6 +61,7 @@ namespace reallife.Commands
                         client.SendChatMessage("Nutze ~b~/lock~w~ zum aufschließen oder abschließen!");
 
                         client.SetData("FrakVehicle", veh);
+                        veh.SetData("ID", client_id);
                     }
                     else
                     {
@@ -83,6 +87,7 @@ namespace reallife.Commands
                         client.SendChatMessage("Nutze ~b~/lock~w~ zum aufschließen oder abschließen!");
 
                         client.SetData("FrakVehicle", veh);
+                        veh.SetData("ID", client_id);
                     }
                     else
                     {
@@ -106,6 +111,7 @@ namespace reallife.Commands
                     client.SendChatMessage("Nutze ~b~/lock~w~ zum aufschließen oder abschließen!");
 
                     client.SetData("FrakVehicle", veh);
+                    veh.SetData("ID", client_id);
                 }
                 else
                 {
@@ -122,6 +128,12 @@ namespace reallife.Commands
         public void CMD_duty(Client client)
         {
             PlayerInfo playerInfo = PlayerHelper.GetPlayerStats(client);
+
+            if (playerInfo.wantedlevel > 0)
+            {
+                client.SendNotification("~r~Du kannst nicht in den Dienst gehen wenn du gesucht wirst!");
+                return;
+            }
 
             if (client.Position.DistanceTo2D(new Vector3(452.2726, -980.15, 30.68961)) <= 0.8)
             {

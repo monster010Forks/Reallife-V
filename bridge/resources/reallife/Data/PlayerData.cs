@@ -1,4 +1,5 @@
 ﻿using GTANetworkAPI;
+using reallife.Events;
 using reallife.Player;
 using System;
 using System.Collections.Generic;
@@ -10,19 +11,27 @@ namespace reallife.Data
     {
         public static void Respawn(Client client)
         {
+            PlayerClothes playerClothes = PlayerHelper.GetPlayerClothes(client);
             PlayerInfo playerInfo = PlayerHelper.GetPlayerStats(client);
 
-            client.SetClothes(1, playerInfo.clothes_1, 0);
-            client.SetClothes(2, playerInfo.clothes_2, 0);
-            client.SetClothes(3, playerInfo.clothes_3, 0);
-            client.SetClothes(4, playerInfo.clothes_4, 0);
-            client.SetClothes(5, playerInfo.clothes_5, 0);
-            client.SetClothes(6, playerInfo.clothes_6, 0);
-            client.SetClothes(7, playerInfo.clothes_7, 0);
-            client.SetClothes(8, playerInfo.clothes_8, 0);
-            client.SetClothes(9, playerInfo.clothes_9, 0);
-            client.SetClothes(10, playerInfo.clothes_10, 0);
-            client.SetClothes(11, playerInfo.clothes_11, 0);
+            if (playerClothes == null)
+            {
+                playerClothes = new PlayerClothes();
+                playerClothes._id = playerInfo._id;
+                playerClothes.Upsert();
+            }
+
+            client.SetClothes(1, playerClothes.clothes_1, 0);
+            client.SetClothes(2, playerClothes.clothes_2, 0);
+            client.SetClothes(3, playerClothes.clothes_3, 0);
+            client.SetClothes(4, playerClothes.clothes_4, 0);
+            client.SetClothes(5, playerClothes.clothes_5, 0);
+            client.SetClothes(6, playerClothes.clothes_6, 0);
+            client.SetClothes(7, playerClothes.clothes_7, 0);
+            client.SetClothes(8, playerClothes.clothes_8, 0);
+            client.SetClothes(9, playerClothes.clothes_9, 0);
+            client.SetClothes(10, playerClothes.clothes_10, 0);
+            client.SetClothes(11, playerClothes.clothes_11, 0);
 
             if (client.HasData("FrakVehicle"))
             {
@@ -44,40 +53,95 @@ namespace reallife.Data
                 client.SendNotification("Du bist nun nicht mehr im Dienst!");
             }
 
-
-            //playerInfo.cuff - Testzwecke
-            if(playerInfo.jail == 1 || playerInfo.cuff == 1)
+            if (playerInfo.jail == 1)
             {
+                TimeSpan ts = TimeSpan.FromMilliseconds(playerInfo.jailtime);
+
                 client.Position = playerInfo.GetLastTempLocation();
-                client.Freeze(true);
                 client.RemoveAllWeapons();
 
+                if (playerInfo.wantedlevel == 1)
+                {
+                    playerInfo.jailtime += 60000;
+                }
+                else if (playerInfo.wantedlevel == 2)
+                {
+                    playerInfo.jailtime += 120000;
+                }
+                else if (playerInfo.wantedlevel == 3)
+                {
+                    playerInfo.jailtime += 180000;
+                }
+                else if (playerInfo.wantedlevel == 4)
+                {
+                    playerInfo.jailtime += 240000;
+                }
+                else if (playerInfo.wantedlevel == 5)
+                {
+                    playerInfo.jailtime += 300000;
+                }
+                else if (playerInfo.wantedlevel >= 6)
+                {
+                    playerInfo.jailtime += 360000;
+                }
+
+                playerInfo.wantedlevel = 0;
                 playerInfo.cuff = 0;
                 playerInfo.Update();
+
+                NAPI.ClientEvent.TriggerClientEvent(client, "JailTrue");
+                client.SendNotification("[~b~LSPD~w~]: Bitte logge dich nicht aus sonst sitzt du wieder so lange!");
+
+                client.SendNotification($"[~b~LSPD~w~]: Du sitzt für ~r~{ts.Minutes}~w~ Minuten.");
+
+                NAPI.Task.Run(() =>
+                {
+                    NAPI.ClientEvent.TriggerClientEvent(client, "JailFalse");
+                    client.SendNotification("[~b~LSPD~w~]: Du bist nun frei!");
+                    playerInfo.jail = 0;
+                    playerInfo.jailtime = 0;
+                    playerInfo.Update();
+                    Respawn(client);
+                }, delayTime: playerInfo.jailtime);
             } else
             {
                 client.Position = playerInfo.GetLastPlayerLocation();
-                client.Freeze(false);
             }
+
+            EventTriggers.Update_Wanteds(client);
+            EventTriggers.Update_Money(client);
+            EventTriggers.Update_Bank(client);
 
             client.SendNotification("~g~Du wurdest respawnt!");
         }
 
         public static void ResetClothes(Client client)
         {
-            PlayerInfo playerInfo = PlayerHelper.GetPlayerStats(client);
 
-            client.SetClothes(1, playerInfo.clothes_1, 0);
-            client.SetClothes(2, playerInfo.clothes_2, 0);
-            client.SetClothes(3, playerInfo.clothes_3, 0);
-            client.SetClothes(4, playerInfo.clothes_4, 0);
-            client.SetClothes(5, playerInfo.clothes_5, 0);
-            client.SetClothes(6, playerInfo.clothes_6, 0);
-            client.SetClothes(7, playerInfo.clothes_7, 0);
-            client.SetClothes(8, playerInfo.clothes_8, 0);
-            client.SetClothes(9, playerInfo.clothes_9, 0);
-            client.SetClothes(10, playerInfo.clothes_10, 0);
-            client.SetClothes(11, playerInfo.clothes_11, 0);
+            int client_id = client.GetData("ID");
+            PlayerClothes playerClothes = PlayerHelper.GetPlayerClothes(client);
+
+            if (playerClothes == null)
+            {
+                playerClothes = new PlayerClothes();
+                playerClothes._id = client_id;
+                playerClothes.Upsert();
+            }
+
+            if (playerClothes._id == client_id)
+            {
+                client.SetClothes(1, playerClothes.clothes_1, 0);
+                client.SetClothes(2, playerClothes.clothes_2, 0);
+                client.SetClothes(3, playerClothes.clothes_3, 0);
+                client.SetClothes(4, playerClothes.clothes_4, 0);
+                client.SetClothes(5, playerClothes.clothes_5, 0);
+                client.SetClothes(6, playerClothes.clothes_6, 0);
+                client.SetClothes(7, playerClothes.clothes_7, 0);
+                client.SetClothes(8, playerClothes.clothes_8, 0);
+                client.SetClothes(9, playerClothes.clothes_9, 0);
+                client.SetClothes(10, playerClothes.clothes_10, 0);
+                client.SetClothes(11, playerClothes.clothes_11, 0);
+            }
         }
 
         public static void LSPDDuty(Client client)
@@ -123,19 +187,19 @@ namespace reallife.Data
 
         public static void OffDuty(Client client)
         {
-            PlayerInfo playerInfo = PlayerHelper.GetPlayerStats(client);
+            PlayerClothes playerClothes = PlayerHelper.GetPlayerClothes(client);
 
-            client.SetClothes(1, playerInfo.clothes_1, 0);
-            client.SetClothes(2, playerInfo.clothes_2, 0);
-            client.SetClothes(3, playerInfo.clothes_3, 0);
-            client.SetClothes(4, playerInfo.clothes_4, 0);
-            client.SetClothes(5, playerInfo.clothes_5, 0);
-            client.SetClothes(6, playerInfo.clothes_6, 0);
-            client.SetClothes(7, playerInfo.clothes_7, 0);
-            client.SetClothes(8, playerInfo.clothes_8, 0);
-            client.SetClothes(9, playerInfo.clothes_9, 0);
-            client.SetClothes(10, playerInfo.clothes_10, 0);
-            client.SetClothes(11, playerInfo.clothes_11, 0);
+            client.SetClothes(1, playerClothes.clothes_1, 0);
+            client.SetClothes(2, playerClothes.clothes_2, 0);
+            client.SetClothes(3, playerClothes.clothes_3, 0);
+            client.SetClothes(4, playerClothes.clothes_4, 0);
+            client.SetClothes(5, playerClothes.clothes_5, 0);
+            client.SetClothes(6, playerClothes.clothes_6, 0);
+            client.SetClothes(7, playerClothes.clothes_7, 0);
+            client.SetClothes(8, playerClothes.clothes_8, 0);
+            client.SetClothes(9, playerClothes.clothes_9, 0);
+            client.SetClothes(10, playerClothes.clothes_10, 0);
+            client.SetClothes(11, playerClothes.clothes_11, 0);
 
             client.RemoveAllWeapons();
 

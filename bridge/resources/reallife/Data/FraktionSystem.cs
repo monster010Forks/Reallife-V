@@ -28,28 +28,43 @@ namespace reallife.Data
             return true;
         }
 
-        public static bool SetRank(Client client, string playerName, int rank)
+        public static bool SetRank(string playerName, int rank)
         {
-            PlayerInfo playerInfo = PlayerHelper.GetPlayerStats(client);
-
-            if (playerInfo == null)
-                return false;
-
-            if (playerInfo.fraktion <= rank)
-                return false;
-
             Client target = NAPI.Player.GetPlayerFromName(playerName);
 
             if (target == null)
                 return false;
 
-            PlayerInfo targetInfo = PlayerHelper.GetPlayerStats(target);
+            PlayerInfo tarInfo = PlayerHelper.GetPlayerStats(target);
 
-            if (targetInfo == null)
+            if (tarInfo == null)
                 return false;
 
-            targetInfo.fraktion = rank;
-            targetInfo.Update();
+
+            if (rank == 1)
+            {
+                tarInfo.last_location = new double[] { 447.9005, -973.0226, 30.68961 };
+                tarInfo.Update();
+                target.SendChatMessage("[~y~Fraktion~w~]: Du wurdest in die Fraktion ~b~LSPD~w~ eingeladen!");
+            }
+
+            if (rank == 2)
+            {
+                tarInfo.last_location = new double[] { 1151.196, -1529.605, 35.36937 };
+                tarInfo.Update();
+                target.SendChatMessage("[~y~Fraktion~w~]: Du wurdest in die Fraktion ~b~SARU~w~ eingeladen!");
+            }
+
+            if (rank == 3)
+            {
+                tarInfo.last_location = new double[] { 85.90534, -1956.926, 20.74745 };
+                tarInfo.Update();
+                target.SendChatMessage("[~y~Fraktion~w~]: Du wurdest in die Fraktion ~b~Grove Street~w~ eingeladen!");
+            }
+
+            tarInfo.fraktion = rank;
+            tarInfo.Update();
+            PlayerData.Respawn(target);
             return true;
         }
     }

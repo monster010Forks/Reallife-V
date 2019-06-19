@@ -43,23 +43,24 @@ namespace reallife.Events
 
             PlayerInfo pInfo = Database.GetData<PlayerInfo>("username", username);
 
-            PlayerInfo playerInfo = new PlayerInfo(username, password, adminrank, socialclub, vorname, nachname);
+            Players players = new Players(username, password, socialclub);
+            PlayerInfo playerInfo = new PlayerInfo(adminrank, vorname, nachname);
 
-
-            if(password != passwordre)
+            if (password != passwordre)
             {
                 client.TriggerEvent("RegisterResult", 0);
                 return;
-            }   
-        
-            if (Database.GetData<PlayerInfo>("username", username) != null)
+            }
+
+            if (Database.GetData<Players>("username", username) != null)
             {
                 client.SendChatMessage("Dieser Benutzername existiert bereits.");
                 client.TriggerEvent("RegisterResult", 0);
                 return;
             }
 
-            Database.Upsert(playerInfo);
+            playerInfo.Upsert();
+            players.Upsert();
             for (int i = 0; i < 99; i++) client.SendChatMessage("~w~");
             client.SendChatMessage("Du hst dich erfolgreich Registriert.");
             client.SendChatMessage("Du kannst dich nun mit deinen Login Daten einloggen!");
@@ -70,17 +71,17 @@ namespace reallife.Events
         [RemoteEvent("OnPlayerLoginAttempt")]
         public void OnPlayerLoginAttempt(Client client, string username, string password)
         {
-            PlayerInfo pInfo = Database.GetData<PlayerInfo>("username", username);
+            Players players = Database.GetData<Players>("username", username);
             PlayerVehicles pVeh = PlayerHelper.GetpVehiclesStats(client);
 
-            if (pInfo == null)
+            if (players == null)
             {
                 client.SendChatMessage("~r~Daten wurden nicht gefunden!");
                 client.TriggerEvent("LoginResult");
                 return;
             }
 
-            if (!pInfo.CheckPassword(password))
+            if (!players.CheckPassword(password))
             {
                 client.SendChatMessage("~r~Die angegebenen Daten sind korrekt!");
                 client.TriggerEvent("LoginResult", 0);
@@ -92,37 +93,19 @@ namespace reallife.Events
                 client.SendChatMessage("Du bist schon eingeloggt!");
                 return;
             }
-            client.SetData("ID", pInfo._id);
+            client.SetData("ID", players._id);
+
+            //LOGIN ENDE
+            PlayerInfo pInfo = PlayerHelper.GetPlayerStats(client);
+            Players playerInfo = PlayerHelper.GetPlayer(client);
+
             client.SetData("AdminRank", pInfo.adminrank);
 
-            if (pInfo.ban == 0)
+            if (playerInfo.ban == 0)
             {
-                LoginHandler.FinishLogin(client);
+                Handler.FinishLogin(client);
                 client.TriggerEvent("LoginResult", 1);
 
-                if (pInfo.adminrank >= 1)
-                {
-                    for (int i = 0; i < 99; i++) client.SendChatMessage("~w~");
-                    //GUIDE START
-                    if (pInfo.vorname == "None")
-                    {
-                        client.SendChatMessage("~r~SERVER: ~w~Bitte wähle einen Vor/nachname!");
-                        NAPI.ClientEvent.TriggerClientEvent(client, "StartCharBrowser");
-                        return;
-                    }
-                    else
-                    {
-                        client.SendChatMessage($"Willkommen, {pInfo.vorname} {pInfo.nachname} auf ~b~Reallife-V");
-                        client.SendChatMessage("~r~SERVER: ~w~Dies ist eine Entwickler Version von ~b~Reallife-V!");
-                        client.SendChatMessage("~r~SERVER: ~w~Also sind Bug`s keine Seltenheit!");
-
-                        client.SendNotification($"~b~Name: {pInfo.vorname} {pInfo.nachname}");
-                        client.SendNotification($"~b~AdminLevel: {pInfo.adminrank}");
-                        return;
-                    }
-                }
-                else
-                {
                     for (int i = 0; i < 99; i++) client.SendChatMessage("~w~");
                     //GUIDE START
                     if (pInfo.vorname == "None")
@@ -139,7 +122,6 @@ namespace reallife.Events
                         client.SendNotification($"~b~Name: {pInfo.vorname} {pInfo.nachname}");
                         return;
                     }
-                }
             }
             else
             {

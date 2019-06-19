@@ -7,10 +7,10 @@ Dieses Script besitzt weder ein Copyright noch sonst irgendetwas weswegen es jed
 Dieses Script ist KOSTENLOS und wird nie für Geld verkauft werden!
 
 <h2>Wie erstelle ich eine Datenbank?!</h2>
-Eine Datenbank wird automatisch nachdem sich der erste Spieler registriert hat im Ordner wo sich die "Server.exe" befindet erstellt und trägt den Namen "Database.db"
+Eine Datenbank wird automatisch nachdem sich der erste Spieler registriert hat im Ordner "Datenbank" erstellt und trägt den Namen "Datenbank.db"
 
 <h2>Wie öffne ich die Datenbank?!</h2>
-Die Datenbank kannst du mithilfe der im Ordner enthaltene "LiteDB.exe" öffnen.
+Die Datenbank kannst du mithilfe der im Ordner enthaltene "LiteDbExplorer.exe" öffnen.
 
 <h2>Wie gebe ich mir Admin?!</h2>
 Öffne die Datenbank und such dich dort, hast du dich gefunden so öffne deine Tabelle mit einem Doppelklick und füge unter "admin" folgenden Wert hinzu (0 = Bürger | 1 = Supporter | 2 = Admin | 3 = Serverleiter).
@@ -61,10 +61,15 @@ Da RageMP C# als Clientside noch nicht voll unterstützt, ist es notwendig das e
 - /duty
 - /fduty (Feuerwehr)
 - /sarucar
+- /revive [Spieler]
+</pre>
+<h5>GROVESTREET:</h5><pre>
+- /fcar
 </pre>
 <h5>LEADER:</h5><pre>
 - /invite [Spieler]
 - /uninvite [Spieler]
+- /fwarn [Spieler]
 </pre>
 <h5>ADMIN:</h5><pre>
 - /clearchat
@@ -78,6 +83,7 @@ Da RageMP C# als Clientside noch nicht voll unterstützt, ist es notwendig das e
 - /gethere [Spieler]
 - /goto [Spieler]
 - /tp [Spieler1] [Spieler2]
+- /warn [Spieler]
 </pre>
 
 Mit freundlichen Grüßen Zmileey

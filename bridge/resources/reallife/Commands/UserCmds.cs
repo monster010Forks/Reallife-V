@@ -10,6 +10,23 @@ namespace reallife.Commands
 {
     public class UserCmds : Script
     {
+
+        [Command("jailtime")]
+        public void CMD_JailTime(Client client)
+        {
+            PlayerInfo pInfo = PlayerHelper.GetPlayerStats(client);
+
+            if (pInfo.jail == 0)
+            {
+                client.SendNotification("Du sitzt nicht im Gefängnis!");
+                return;
+            }
+
+            TimeSpan ts = TimeSpan.FromMilliseconds(pInfo.jailtime);
+
+            client.SendNotification($"[~b~LSPD~w~]: Du sitzt für ~r~{ts.Minutes}~w~ Minuten.");
+        }
+
         [Command("showstats")]
         public void CMD_ShowStats(Client client, Client player)
         {
@@ -173,7 +190,8 @@ namespace reallife.Commands
                 client.SendNotification("~r~Du besitzt kein Fahrzeug das respawnt werden könnte!");
                 return;
             }
-            else if (pVeh._id == client_id)
+
+            if (pVeh._id == client_id)
             {
                 Vehicle previous_vehicle = client.GetData("PersonalVehicle");
                 previous_vehicle.Delete();
@@ -197,6 +215,7 @@ namespace reallife.Commands
                 NAPI.Vehicle.SetVehicleWindowTint(veh, pVeh.window); NAPI.Vehicle.SetVehicleMod(veh, 15, pVeh.suspension);
 
                 client.SetData("PersonalVehicle", veh);
+                veh.SetData("ID", client_id);
             }
         }
         [Command("park")]
@@ -261,32 +280,8 @@ namespace reallife.Commands
         public void Motor(Client client)
         {
 
-            PlayerVehicles.EngineStatus(client);
+            PlayerVehicles.Engine(client);
 
-            /*  ALT
-            Vehicle personal_vehicle = client.GetData("PersonalVehicle");
-
-            if (client.IsInVehicle)
-            {
-                if (client.HasData("PersonalVehicle"))
-                {
-                    if (client.Position.DistanceTo2D(personal_vehicle.Position) <= 0.1)
-                    {
-                        PlayerVehicles.EngineStatus(client);
-                    } else
-                    {
-                        client.SendNotification("~r~Du besitzt für dieses Fahrzeug keinen Schlüssel!");
-                    }
-                }
-                else
-                {
-                    client.SendNotification("~r~Du besitzt für dieses Fahrzeug keinen Schlüssel!");
-                }
-            }
-            else
-            {
-                client.SendNotification("Du bist in keinem Fahrzeug.");
-            }*/
         }
     }
 }

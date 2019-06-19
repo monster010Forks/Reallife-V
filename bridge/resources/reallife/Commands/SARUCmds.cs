@@ -1,5 +1,6 @@
 ﻿using GTANetworkAPI;
 using reallife.Data;
+using reallife.Events;
 using reallife.Player;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,69 @@ namespace reallife.Commands
 {
     class SARUCmds : Script
     {
+        [Command("revive")]
+        public void CMD_Revive(Client client, Client player)
+        {
+            PlayerInfo cInfo = PlayerHelper.GetPlayerStats(client);
+            PlayerInfo pInfo = PlayerHelper.GetPlayerStats(player);
+
+            if (!FraktionSystem.HasRank(client, 2))
+            {
+                client.SendNotification("~r~Du gehörst nicht zur SARU!");
+                return;
+            }
+
+            if (!client.HasData("onduty"))
+            {
+                client.SendNotification("~r~Du bist nicht im Dienst!");
+                return;
+            }
+
+            if (client.Position.DistanceTo2D(player.Position) <= 3)
+            {
+                if (!player.HasData("dead"))
+                {
+                    client.SendNotification("Dieser Spieler ist nicht gestorben!");
+                    return;
+                }
+
+                NAPI.Player.SpawnPlayer(player, pInfo.GetLastPlayerLocation());
+                player.SendNotification("Du wurdest respawnt!");
+                NAPI.ClientEvent.TriggerClientEvent(player, "DeathFalse");
+                player.ResetData("dead");
+
+                cInfo.money += 100;
+                cInfo.Update();
+                client.SendNotification("[~r~SARU~w~]: Du hast 100~g~$~w~ erhalten.");
+
+                if (pInfo.money > 100)
+                {
+                    pInfo.money -= 100;
+                    pInfo.Update();
+                    player.SendNotification("[~r~SARU~w~]: Du hast für die Behandlung 100~g~$~w~ bezahlt.");
+                }
+                else if (pInfo.bank > 100)
+                {
+                    pInfo.bank -= 100;
+                    pInfo.Update();
+                    player.SendNotification("[~r~SARU~w~]: Du hast für die Behandlung 100~g~$~w~ bezahlt.");
+                } else
+                {
+                    client.SendNotification("[~y~EasterEgg~w~]: Du bist verdammt arm! geh arbeiten!");
+                }
+
+                EventTriggers.Update_Money(client);
+                EventTriggers.Update_Bank(client);
+
+                EventTriggers.Update_Money(player);
+                EventTriggers.Update_Bank(player);
+
+            } else
+            {
+                client.SendNotification("Du bist nicht in der Nähe dieser Person!");
+            }
+        }
+
         [Command("fduty")]
         public void CMD_fduty(Client client)
         {

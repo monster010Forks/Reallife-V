@@ -1,30 +1,51 @@
 || 16.06.2019 ||
 ----------------
-- /akte (Spieler) - hinzugefügt
-- /einsperren (Spieler) - hinzugefügt
-- /entlassen (spieler) - hinzugefügt
-- /cuff (Spieler) - hinzugefügt
-- /uncuff (Spieler) - hinzugefügt
-- /removewanted (Spieler) (Wanteds) - hinzugefügt
+- /akte (Spieler) - hinzugefügt | LSPD
+- /einsperren (Spieler) - hinzugefügt | LSPD
+- /entlassen (spieler) - hinzugefügt | LSPD
+- /cuff (Spieler) - hinzugefügt | LSPD
+- /uncuff (Spieler) - hinzugefügt | LSPD
+- /removewanted (Spieler) (Wanteds) - hinzugefügt | LSPD
 
 Neue Textelemente im LSPD.
 Neue Tabellen in PlayerInfo.
 
 - Gefängnis (Unfertig).
 
-- /mp (Nachricht) - Überarbeitet
+- /mp (Nachricht) - Überarbeitet | LSPD
 
-|| 17.06.2019 ||
+|| 20.06.2019 ||
 ----------------
-- /fwarn (Spieler)
-- /delfwarn (Spieler)
-- /fcar
-- /warn (Spieler)
-- /delwarn (Spieler)
+- /fwarn (Spieler) - Hinzugefügt | Leader
+- /delfwarn (Spieler) - Hinzugefügt | Leader
+- /fcar - Hinzugefügt | Fraktion
+- /warn (Spieler) - Hinzugefügt | Admin
+- /delwarn (Spieler) - Hinzugefügt | Admin
+- /jailtime - Unfertig | Spieler
 
-- /uninvite (Spieler) - Überarbeitet
+- /uninvite (Spieler) - Überarbeitet | Leader
+- /cuff (Spieler) - Überarbeitet | LSPD
+- /uncuff (Spieler) - Überarbeitet | LSPD
+- /duty (Spieler) - Überarbeitet | LSPD & SARU
+- /revive (Spieler) - Hinzugefügt | SARU
+- /invite (Spieler) - Überarbeitet | Leader
+- /uninvite (Spieler) - Überarbeitet | Leader
+- /makeleader (Spieler) - Überarbeitet | Admin
+- /makeadmin (Spieler) - Überarbeitet | Admin
 
 - /sarucar - Entfernt (durch /fcar ersetzt)
 - /lspdcar - Entfernt (durch /fcar ersetzt)
 
 GroveStreet (Unfertig) - Hinzugefügt
+Klamotten, Login und Spielerinfos werden extra in der Datenbank abgespeichert.
+Login & Register wurde überarbeitet.
+Gefängnis wurde überarbeitet und funktioniert soweit.
+Motorsystem wurde überarbeitet.
+Fahrzeuge besitzen nun eigene IDs.
+Locksystem wurde überarbeitet.
+WhichAdmin & WhichFrak wurden optimiert und überarbeitet.
+
+OnPlayerDeath wurde überarbeitet und gefixt.
+OnPlayerDeath besitzt nun ein Ladebalken.
+
+AdminSystem, LeaderSystem & FraktionSystem wurden überarbeitet.

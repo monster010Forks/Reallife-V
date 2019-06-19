@@ -24,9 +24,9 @@ namespace reallife.Fraktion
         {
             PlayerInfo pInfo = PlayerHelper.GetPlayerStats(client);
 
-            pInfo.cuff = 1;
+            pInfo.cuff = 0;
             pInfo.temp_location = null;
-            client.SetData("cuff", false);
+            client.ResetData("cuff");
             pInfo.Update();
         }
         public LSPD()

@@ -14,7 +14,7 @@ namespace reallife.Commands
         {
             //Spieler Statistiken
             PlayerInfo leaderInfo = PlayerHelper.GetPlayerStats(client);
-            PlayerInfo playerInfo = PlayerHelper.GetPlayerStats(player);
+            Players playerInfo = PlayerHelper.GetPlayer(player);
 
             //Abfrage ob man ein Leader ist
             if (!AdminSystem.HasRank(client, 1))
@@ -46,7 +46,8 @@ namespace reallife.Commands
         {
             //Spieler Statistiken
             PlayerInfo leaderInfo = PlayerHelper.GetPlayerStats(client);
-            PlayerInfo playerInfo = PlayerHelper.GetPlayerStats(player);
+            Players playerInfo = PlayerHelper.GetPlayer(player);
+            BanLog banLog = PlayerHelper.BanLogs(player);
 
             //Abfrage ob man ein Leader ist
             if (!AdminSystem.HasRank(client, 1))
@@ -72,6 +73,12 @@ namespace reallife.Commands
 
                 playerInfo.ban = 1;
                 playerInfo.Update();
+
+                banLog = new BanLog();
+                banLog.banned = player.Name;
+                banLog.bannedby = client.Name;
+                banLog.grund = "3_Verwarnungen";
+                banLog.Upsert();
 
                 player.Kick();
             }
@@ -202,9 +209,9 @@ namespace reallife.Commands
         }
 
         [Command("makeleader")]
-        public void CMD_MakeLeader(Client client, Client player, int rank)
+        public void CMD_MakeLeader(Client client, string player, int rank)
         {
-            PlayerInfo tarInfo = PlayerHelper.GetPlayerStats(player);
+            Client target = NAPI.Player.GetPlayerFromName(player);
 
             if (!AdminSystem.HasRank(client, 2))
             {
@@ -212,43 +219,16 @@ namespace reallife.Commands
                 return;
             }
 
-                if (rank == 1)
-                {
-                    tarInfo.fraktion = rank;
-                    tarInfo.fleader = rank;
-                    tarInfo.last_location = new double[] { 447.9005, -973.0226, 30.68961 };
-                    tarInfo.Update();
-                    PlayerData.Respawn(client);
-                    player.SendChatMessage("Du wurdest zum ~y~Leader~w~ der ~b~LSPD~w~ ernannt!");
-                }
-                else if (rank == 2)
-                {
-                    tarInfo.fraktion = rank;
-                    tarInfo.fleader = rank;
-                    tarInfo.last_location = new double[] { 1151.196, -1529.605, 35.36937 };
-                    //Rotation: 325.3967
-                    tarInfo.Update();
-                    PlayerData.Respawn(client);
-                    player.SendChatMessage("Du wurdest zum ~y~Leader~w~ der ~b~SARU~w~ ernannt!");
-                }
-                else if (rank == 3) {
-                tarInfo.fraktion = rank;
-                tarInfo.fleader = rank;
-                tarInfo.last_location = new double[] { 85.90534, -1956.926, 20.74745 };
-                //Rotation: 325.3967
-                tarInfo.Update();
+            if (LeaderSystem.SetRank(player, rank))
+            {
+                client.SendNotification($"[~r~Server~w~] Spieler {player} wurde {LeaderSystem.GetSetLeaderText(target)}");
                 PlayerData.Respawn(client);
-                player.SendChatMessage("Du wurdest zum ~y~Leader~w~ der ~g~Grove Street~w~ ernannt!");
+                return;
+            } else
+            {
+                client.SendNotification($"[~r~Server~w~] Spieler {player} konnte nicht zum Leader ernannt werden!");
+                return;
             }
-                else if (rank == 0)
-                {
-                    tarInfo.fraktion = rank;
-                    tarInfo.fleader = rank;
-                    tarInfo.last_location = new double[] { -1167.994, -700.4285, 21.89281 };
-                    tarInfo.Update();
-                    PlayerData.Respawn(client);
-                    player.SendChatMessage($"Du wurdest als Leader entlassen und bist absofort Arbeitslos!");
-                }
         }
 
         [Command("kick")]
@@ -274,7 +254,7 @@ namespace reallife.Commands
         [Command("unban")]
         public void CMD_UnBan(Client client, Client player)
         {
-            PlayerInfo tarInfo = PlayerHelper.GetPlayerStats(player);
+            Players tarInfo = PlayerHelper.GetPlayer(player);
 
             if (!AdminSystem.HasRank(client, 2))
             {
@@ -305,7 +285,8 @@ namespace reallife.Commands
         [Command("ban")]
         public void CMD_Ban(Client client, Client player, string grund)
         {
-            PlayerInfo tarInfo = PlayerHelper.GetPlayerStats(player);
+            Players tarInfo = PlayerHelper.GetPlayer(player);
+            Players p = PlayerHelper.GetPlayer(player);
             BanLog Banlog = PlayerHelper.BanLogs(client);
 
             if (!AdminSystem.HasRank(client, 2))
@@ -314,7 +295,7 @@ namespace reallife.Commands
                 return;
             }
 
-            if (tarInfo.username == null)
+            if (p.username == null)
             {
                 client.SendNotification("Spieler existiert nicht!");
             }
@@ -340,11 +321,40 @@ namespace reallife.Commands
             //Spieler wird vom Server Zeitlich ausgeschlossen
         }
 
-        [Command("setweather")]
-        public void CMD_SetWeather(Client player)
+        [Command("settime")]
+        public void CMD_SetTime(Client client, int hours, int minutes, int seconds)
         {
-            //Befehl hier einfügen
-            //Das Wetter von ganz GTA wird verändert
+            if (!AdminSystem.HasRank(client, 2))
+            {
+                client.SendNotification("~r~Du bist dazu nicht befugt!");
+                return;
+            }
+
+            NAPI.World.SetTime(hours, minutes, seconds);
+        }
+
+        [Command("setweather")]
+        public void CMD_SetWeather(Client client, string weather)
+        {
+            if (!AdminSystem.HasRank(client, 2))
+            {
+                client.SendNotification("~r~Du bist dazu nicht befugt!");
+                return;
+            }
+
+            NAPI.World.SetWeather(weather);
+        }
+
+        [Command("gethere")]
+        public void CMD_GetHere(Client client, Client player)
+        {
+            if (!AdminSystem.HasRank(client, 1))
+            {
+                client.SendNotification("~r~Du hast dazu keine Berechtigung!");
+                return;
+            }
+
+            player.Position = client.Position;
         }
 
         [Command("goto")]
@@ -356,11 +366,11 @@ namespace reallife.Commands
                 return;
             }
 
-                client.Position = new Vector3(player.Position.X, player.Position.Y, player.Position.Z);
+            client.Position = player.Position;
         }
 
-        [Command("gethere")]
-        public void CMD_GetHere(Client client, Client player1, Client player2)
+        [Command("tp")]
+        public void CMD_Teleport(Client client, Client player1, Client player2)
         {
 
             if (!AdminSystem.HasRank(client, 1))
@@ -369,7 +379,7 @@ namespace reallife.Commands
                 return;
             }
 
-                player1.Position = new Vector3(player2.Position.X, player2.Position.Y, player2.Position.Z);
+            player1.Position = player2.Position;
         }
 
         [Command("getweapon")]
@@ -400,7 +410,7 @@ namespace reallife.Commands
         [Command("ac")]
         public void CMD_AC(Client client, string message)
         {
-            if (!AdminSystem.HasRank(client, 2))
+            if (!AdminSystem.HasRank(client, 1))
             {
                 client.SendNotification("~r~Du hast dazu keine Berechtigung!");
                 return;
@@ -449,6 +459,15 @@ namespace reallife.Commands
                 Console.WriteLine($"X: {PlayerPos.X} Y: {PlayerPos.Y} Z: {PlayerPos.Z}  | rX: {rPlayerPos.X} rY: {rPlayerPos.Y} rZ {rPlayerPos.Z} | {message} |");
         }
 
+        [Command("testv")]
+        public void CMD_TestVehicle(Client client, string fahrzeug_modell)
+        {
+            uint hash = NAPI.Util.GetHashKey(fahrzeug_modell);
+            Vehicle veh = NAPI.Vehicle.CreateVehicle(hash, client.Position, client.Rotation.Z, 0, 0);
+            NAPI.Vehicle.SetVehicleNumberPlate(veh, client.Name);
+            client.SetIntoVehicle(veh, -1);
+        }
+
         [Command("veh")]
         public void CMD_CreateVeh(Client client, string fahrzeug_modell)
         {
@@ -492,6 +511,7 @@ namespace reallife.Commands
 
                     Database.Upsert(pVeh);
                     client.SetData("PersonalVehicle", veh);
+                    veh.SetData("ID", client_id);
                 }
                 else if (pVeh._id == client_id)
                 {
@@ -526,6 +546,7 @@ namespace reallife.Commands
                     Database.Update(pVeh);
 
                     client.SetData("PersonalVehicle", veh);
+                    veh.SetData("ID", client_id);
                 }
 
                 return;

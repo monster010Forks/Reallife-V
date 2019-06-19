@@ -1,52 +1,46 @@
 ﻿using GTANetworkAPI;
 using reallife.Player;
 using reallife.Db;
+using reallife.Data;
 
 namespace reallife.Events
 {
     class SE : Script
     {
-        [ServerEvent(Event.PlayerEnterVehicle)]
-        public void OnPlayerEnterVehicle(Client client, Vehicle vehicle, sbyte seatID)
-        {
-            int client_id = client.GetData("ID");
-            Vehicle personal_vehicle = client.GetData("PersonalVehicle");
-
-            if (client.HasData("PersonalVehicle"))
-            {
-                if (Database.GetData<PlayerVehicles>("_id", client_id) == null)
-                {
-                    if (client.VehicleSeat != (int)VehicleSeat.Driver)
-                    {
-                        client.SendNotification("~r~Du hast kein schlüssel für dieses Fahrzeug!");
-
-                    }
-                }
-                return;
-            }
-        }
         [ServerEvent(Event.PlayerDisconnected)]
         public void OnPlayerDisconnected(Client client, DisconnectionType type, string reason)
         {
-            Player.DisconnectHandler.DisconnectFinish(client);
+            Player.Handler.DisconnectFinish(client);
         }
 
         [ServerEvent(Event.PlayerDeath)]
         public void OnPlayerDeath(Client player, Client killer, uint reason)
         {
+            PlayerInfo pInfo = PlayerHelper.GetPlayerStats(player);
+
+            if (killer == null)
+            {
+                NAPI.Chat.SendChatMessageToPlayer(player, $"Du bist gestorben!");
+            }
+            else
+            {
+                NAPI.Chat.SendChatMessageToPlayer(player, $"Du wurdest von {killer.Name} getötet!");
+            }
+
+            NAPI.ClientEvent.TriggerClientEvent(player, "DeathTrue");
+
+            player.SetData("dead", true);
+
             NAPI.Task.Run(() =>
             {
-                if (!killer.IsNull)
+                if (player.HasData("dead"))
                 {
-                    NAPI.Player.SpawnPlayer(player, new Vector3(335.866, -597.0053, 28.77587));
-                    NAPI.Chat.SendChatMessageToPlayer(player, $"Du wurdest von {killer.Name} getötet!");
+                    NAPI.Player.SpawnPlayer(player, pInfo.GetLastPlayerLocation());
+                    player.SendNotification("Du wurdest respawnt!");
+                    NAPI.ClientEvent.TriggerClientEvent(player, "DeathFalse");
+                    player.ResetData("dead");
                 }
-                else
-                {
-                    NAPI.Player.SpawnPlayer(player, new Vector3(335.866, -597.0053, 28.77587));
-                    NAPI.Chat.SendChatMessageToPlayer(player, $"Du bist gestorben!");
-                }
-            }, delayTime: 10000);
+            }, delayTime: 120000);
         }
     }
 }

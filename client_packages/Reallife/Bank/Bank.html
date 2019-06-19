@@ -20,32 +20,13 @@
 <body>
    <div class="container">
         <div class="card" id="mainContainer">
-			<h3 style="text-align:center;color:black;margin-top:35px;text-decoration:underline;">Bank of San Andreas</h3>
-			<hr style="margin-bottom:27px;">
-			<div id="cBalance" class="row" style="margin-top: -15px;margin-bottom:5px;">
-			<div class="col-4">
-				<div class="row">
-					<div id="balance-hand" style="margin-left:25px;"><b>Bargeld $</b> </div>
-					<div id="handgeld">0.000.000.000</div>
-				</div>
-			</div>
-			<div class="col-4"></div>
-			<div class="col-4">
-				<div class="row">
-					<div id="balance-bank" style="margin-left:-10px;"><b>Kontostand $</b> </div>
-					<div id="bankgeld">0.000.000.000</div>
-				</div>
-			</div>
-			</div>
+			<h3 style="text-align:center;color:black;margin-top:35px;text-decoration:underline;">Reallife-V ATM</h3>
             <div class="card-body">
-			<hr style="margin-top: -5px;margin-bottom:0px;">
+
 			<div class="card-header tab-card-header">
                 <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link" id="log-tab" data-toggle="tab" href="#log" role="tab">Konto Übersicht</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="deposit-tab" data-toggle="tab" href="#deposit" role="tab">Geld Einzahlen</a>
+                    <li class="nav-item active">
+                        <a class="nav-link active show" id="deposit-tab" data-toggle="tab" href="#deposit" role="tab">Geld Einzahlen</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="withdraw-tab" data-toggle="tab" href="#withdraw" role="tab">Geld Abheben</a>
@@ -59,31 +40,10 @@
 			</div>	
 
                 <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="log" role="tabpanel">
 
-                        <div class="mt-3" style="text-align:center">
-                            <p>Deine Letzten 20 Transactionen!</p>
-                        </div>
-                        <div class="scrollbar scrollbar-danger " id="transContainer">
-                            <div class="auto-overflow">
-                                <div class=" ml-1 mr-1">
-                                    <div class="mt-1 mb-1 form-control border bg-danger">
-                                        <div class="row">
-                                            <div class="text-white col-8" style="text-align:left">Von diesem Spieler erhalten ....</div>
-                                            <div class="text-white col-4" style="text-align:right">-$1500.54</div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-pane fade" id="deposit" role="tabpanel">
+                    <div class="tab-pane fade show active" id="deposit" role="tabpanel">
 						<form action=""> 
                         <div class="row ml-10 mt-3 mr-10" style="display: block; margin-left:auto; margin-right:auto;">
-
                             <div class="mt-3 mb-3 form-control border bg-success">
                                 <div class="text-white" style="text-align:center">Waehlen sie einen Betrag den die auf ihr Konto einzahlen moechten.</div>
                             </div>
@@ -164,10 +124,6 @@
                     <div class="tab-pane fade" id="ueberweisen" role="tabpanel">
 					<form action=""> 
                         <div class="mt-3 mb-3 form-control border bg-success">
-                            <div class="text-white" style="text-align:center">An welchen Spieler möchten sie Geld Ueberweisen und wie viel?</div>
-                        </div>
-                        <hr />
-                        <div class="mt-3 mb-3 form-control border bg-success">
                             <div class="text-white" style="text-align:center">Bitte geben sie hier den Spielername ein an den sie Geld Uebwerweisen wollen!</div>
                         </div>
 						<div class="input-group mb-3">
@@ -188,7 +144,7 @@
 						</form>
                     </div>
                 </div>
-                <button type="button" class="mt-3 btn btn-black btn-lg btn-block" onclick="" id="cancelBank">Schliesen</button>
+                <button type="button" class="mt-3 btn btn-danger btn-lg btn-block" onclick="" id="cancelBank">Schliesen</button>
             </div>
         </div>
     </div>

@@ -9,7 +9,6 @@ namespace reallife
 {
     public class Main : Script
     {
-
         [ServerEvent(Event.ResourceStart)]
         public void ResourceStart()
         {
@@ -18,6 +17,7 @@ namespace reallife
             Console.WriteLine("( Version Dev0.4.1");
             Console.WriteLine("(~~~~~~~~~~~~~~~~~~~~~)");
 
+            NAPI.Server.SetAutoRespawnAfterDeath(false);
             NAPI.Server.SetGlobalServerChat(false);
             NAPI.Server.SetAutoSpawnOnConnect(false);
             NAPI.Server.SetAutoRespawnAfterDeath(false);

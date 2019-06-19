@@ -31,3 +31,4 @@ D:\Projekte\Reallife-V\server-files\bridge\resources\reallife\obj\Debug\netcorea
 D:\Projekte\Reallife-V\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.1\reallife.csproj.CopyComplete
 D:\Projekte\Reallife-V\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.1\reallife.dll
 D:\Projekte\Reallife-V\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.1\reallife.pdb
+D:\Projekte\Reallife-V\server-files\bridge\resources\reallife\obj\Debug\netcoreapp2.1\reallife.csprojAssemblyReference.cache

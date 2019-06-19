@@ -5,6 +5,16 @@ namespace reallife.Player
 {
     class PlayerHelper
     {
+        public static Players GetPlayer(Client client)
+        {
+            if (!client.HasData("ID"))
+                return null;
+
+            int pInfo = client.GetData("ID");
+            Players p = Database.GetById<Players>(pInfo);
+            return p;
+        }
+
         public static PlayerInfo GetPlayerStats(Client client)
         {
             if (!client.HasData("ID"))
@@ -13,6 +23,16 @@ namespace reallife.Player
             int pInfo = client.GetData("ID");
             PlayerInfo playerInfo = Database.GetById<PlayerInfo>(pInfo);
             return playerInfo;
+        }
+
+        public static PlayerClothes GetPlayerClothes(Client client)
+        {
+            if (!client.HasData("ID"))
+                return null;
+
+            int pInfo = client.GetData("ID");
+            PlayerClothes pClothes = Database.GetById<PlayerClothes>(pInfo);
+            return pClothes;
         }
 
         public static BanLog BanLogs(Client client)
