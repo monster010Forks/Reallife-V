@@ -1,4 +1,4 @@
-Ein Dankeschön an https://github.com/NachoMan12 für die Unterstützung und Beihilfe bei der Optimierung von dem Code.
+<h4>Ein Dankeschön an https://github.com/NachoMan12 für die Unterstützung und Beihilfe bei der Optimierung von dem Code.<h4>
 
 Reallife-V | Deutsches C# RageMP Script
 
@@ -39,6 +39,7 @@ Da RageMP C# als Clientside noch nicht voll unterstützt, ist es notwendig das e
 <h5>ALLE BENUTZER:</h5><pre>
 - /hilfe
 - /showstats [Spieler]
+- /money
 - /givemoney [Spieler] [Menge]
 - /motor
 - /lock
@@ -51,7 +52,7 @@ Da RageMP C# als Clientside noch nicht voll unterstützt, ist es notwendig das e
 - /akte [Spieler]
 - /mp [Text]
 - /duty
-- /lspdcar
+- /fcar
 - /cuff [Spieler]
 - /uncuff [Spieler]
 - /einsperren [Spieler]
@@ -62,7 +63,7 @@ Da RageMP C# als Clientside noch nicht voll unterstützt, ist es notwendig das e
 - /heal [Spieler]
 - /duty
 - /fduty (Feuerwehr)
-- /sarucar
+- /fcar
 - /revive [Spieler] - Konnte bisher nicht getestet werden!
 </pre>
 <h5>GROVESTREET:</h5><pre>
@@ -80,6 +81,7 @@ Da RageMP C# als Clientside noch nicht voll unterstützt, ist es notwendig das e
 - /makeadmin [Spieler] [Rang]
 - /kick [Spieler] [Grund]
 - /ban [Spieler] [Grund]
+- /unban [Spieler] - Experimentell
 - /setmoney [Spieler] [Anzahl]
 - /veh [Fahrzeugmodell (z.B. nero2)]
 - /getweapon [Waffenmodell (z.B. Pistol)]
@@ -90,6 +92,7 @@ Da RageMP C# als Clientside noch nicht voll unterstützt, ist es notwendig das e
 - /delwarn [Spieler]
 - /setweather [Wetter]
 - /settime [Uhrzeit]
+- /tune
 </pre>
 
 Mit freundlichen Grüßen Zmileey
