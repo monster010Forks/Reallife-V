@@ -1,4 +1,4 @@
-<h4>Ein Dankeschön an https://github.com/NachoMan12 für die Unterstützung und Beihilfe bei der Optimierung von dem Code.<h4>
+<h4>Ein Dankeschön an https://github.com/NachoMan12 für die Unterstützung und Beihilfe bei der Optimierung von dem Code.</h4>
 
 Reallife-V | Deutsches C# RageMP Script
 
@@ -19,6 +19,9 @@ Die Datenbank kannst du mithilfe der im Ordner enthaltene "LiteDbExplorer.exe" �
 
 <h2>Ich kann keine Geldanzeige oder sonstiges sehen?!</h2>
 Da RageMP C# als Clientside noch nicht voll unterstützt, ist es notwendig das eine Datei im Ordner von RageMP erstellt wird, diese muss "enable-clientside-cs.txt" heißen. (Dies wird nur benötigt da ansonsten dir die Geldanzeige, Wantedlevel und Logo nicht angezeigt wird.)
+
+<h2>System.IO.DirectoryNotFoundException: Could not find a part of the path 'DATEIPFAD\Datenbank\Datenbank.db'.</h2>
+Anscheinend wurde noch kein Ordner mit dem Namen "Datenbank" erstellt. Bitte erstelle einen Ordner mit dem Namen "Datenbank" dort wo sich die "Server.exe" befindet und versuche es erneut.
 
 <h3>Funktionen</h3>
 <pre>
