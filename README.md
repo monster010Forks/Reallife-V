@@ -1,3 +1,5 @@
+Ein Dankeschön an https://github.com/NachoMan12 für die Unterstützung und Beihilfe bei der Optimierung von dem Code.
+
 Reallife-V | Deutsches C# RageMP Script
 
 Reallife-V ist eine kostenloses Script für RageMP und ist in C# programmiert wurden.
@@ -61,7 +63,7 @@ Da RageMP C# als Clientside noch nicht voll unterstützt, ist es notwendig das e
 - /duty
 - /fduty (Feuerwehr)
 - /sarucar
-- /revive [Spieler]
+- /revive [Spieler] - Konnte bisher nicht getestet werden!
 </pre>
 <h5>GROVESTREET:</h5><pre>
 - /fcar
@@ -70,6 +72,7 @@ Da RageMP C# als Clientside noch nicht voll unterstützt, ist es notwendig das e
 - /invite [Spieler]
 - /uninvite [Spieler]
 - /fwarn [Spieler]
+- /delfwarn [Spieler]
 </pre>
 <h5>ADMIN:</h5><pre>
 - /clearchat
@@ -84,6 +87,9 @@ Da RageMP C# als Clientside noch nicht voll unterstützt, ist es notwendig das e
 - /goto [Spieler]
 - /tp [Spieler1] [Spieler2]
 - /warn [Spieler]
+- /delwarn [Spieler]
+- /setweather [Wetter]
+- /settime [Uhrzeit]
 </pre>
 
 Mit freundlichen Grüßen Zmileey
